@@ -5,11 +5,11 @@ function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
-            return "rock";
+            return "Rock";
         case 1: 
-            return "paper";
+            return "Paper";
         case 2: 
-            return "scissors";
+            return "Scissors";
     }
 }
 
@@ -18,11 +18,11 @@ function getHumanChoice() {
     if (answer || answer == "") {
         switch (answer.toLowerCase()) {
             case "rock":
-                return "rock";
+                return "Rock";
             case "paper":
-                return "paper";
+                return "Paper";
             case "scissors":
-                return "scissors";
+                return "Scissors";
             default:
                 window.alert("Invalid input. Please try again");
                 return getHumanChoice();
@@ -51,7 +51,9 @@ function playRound(computerChoice, humanChoice) {
         }
 }
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
+console.log(getHumanChoice());
 
-playRound(computerSelection, humanSelection);
+// const computerSelection = getComputerChoice();
+// const humanSelection = getHumanChoice();
+
+// playRound(computerSelection, humanSelection);
