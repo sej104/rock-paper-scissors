@@ -15,7 +15,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     const answer = prompt("Rock, paper, scissors...");
-    if (answer || answer === "") {
+    if (answer || answer == "") {
         switch (answer.toLowerCase()) {
             case "rock":
                 return "rock";
@@ -28,7 +28,7 @@ function getHumanChoice() {
                 return getHumanChoice();
         }
     } else {
-        return;
+        return null;
     }
 }
 
@@ -42,6 +42,8 @@ function playRound(computerChoice, humanChoice) {
         } else if (computerChoice == humanChoice) {
             window.alert("It's a tie! Play again");
             return playRound(getComputerChoice(), getHumanChoice());
+        } else if (humanChoice === null) {
+            console.log(`Game was canceled`);
         } else {
             humanChoice = humanChoice.at(0).toUpperCase().concat(humanChoice.slice(1));
             console.log(`You won! ${humanChoice} beats ${computerChoice}`);
