@@ -29,23 +29,6 @@ function getHumanChoice() {
     }
 }
 
-function playRound(computerChoice, humanChoice) {
-    if (computerChoice == "Rock" && humanChoice == "Scissors" ||
-        computerChoice == "Scissors" && humanChoice == "Paper" ||
-        computerChoice == "Paper" && humanChoice == "Rock") {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-            computerScore++;
-        } else if (computerChoice == humanChoice) {
-            window.alert("It's a tie! Play again");
-            return playRound(getComputerChoice(), getHumanChoice());
-        } else if (humanChoice === null) {
-            console.log(`Game was canceled`);
-        } else {
-            console.log(`You won! ${humanChoice} beats ${computerChoice}`);
-            humanScore++;
-        }
-}
-
 function calcRoundNumbers (computerScore, humanScore) {
     return computerScore + humanScore;
 }
