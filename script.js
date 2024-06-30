@@ -33,10 +33,9 @@ function getHumanChoice() {
 }
 
 function playRound(computerChoice, humanChoice) {
-    if (computerChoice == "rock" && humanChoice == "scissors" ||
-        computerChoice == "scissors" && humanChoice == "paper" ||
-        computerChoice == "paper" && humanChoice == "rock") {
-            computerChoice = computerChoice.at(0).toUpperCase().concat(computerChoice.slice(1));
+    if (computerChoice == "Rock" && humanChoice == "Scissors" ||
+        computerChoice == "Scissors" && humanChoice == "Paper" ||
+        computerChoice == "Paper" && humanChoice == "Rock") {
             console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
             computerScore++;
         } else if (computerChoice == humanChoice) {
@@ -45,15 +44,12 @@ function playRound(computerChoice, humanChoice) {
         } else if (humanChoice === null) {
             console.log(`Game was canceled`);
         } else {
-            humanChoice = humanChoice.at(0).toUpperCase().concat(humanChoice.slice(1));
             console.log(`You won! ${humanChoice} beats ${computerChoice}`);
             humanScore++;
         }
 }
 
-console.log(getHumanChoice());
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
 
-// const computerSelection = getComputerChoice();
-// const humanSelection = getHumanChoice();
-
-// playRound(computerSelection, humanSelection);
+playRound(computerSelection, humanSelection);
