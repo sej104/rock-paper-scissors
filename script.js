@@ -2,7 +2,7 @@ let computerScore = 0;
 let humanScore = 0;
 
 function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3);
+    const randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
             return "rock";
@@ -14,9 +14,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    const humanChoice = prompt("Rock, paper, scissors...");
-    if (humanChoice || humanChoice === "") {
-        switch (humanChoice.toLowerCase()) {
+    const answer = prompt("Rock, paper, scissors...");
+    if (answer || answer === "") {
+        switch (answer.toLowerCase()) {
             case "rock":
                 return "rock";
             case "paper":
