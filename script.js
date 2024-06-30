@@ -46,6 +46,10 @@ function playRound(computerChoice, humanChoice) {
         }
 }
 
+function calcRoundNumbers (computerScore, humanScore) {
+    return computerScore + humanScore;
+}
+
 function checkWinner(computerScore, humanScore) {
     if (computerScore > humanScore) {
         return "Computer";
@@ -58,8 +62,13 @@ function displayWinner(winner) {
     if (winner == "Computer") {
         console.log("Computer wins the game!");
     } else {
-        console.log("You win the game!")
+        console.log("You won the game!")
     }
+}
+
+function displayScore(computerScore, humanScore) {
+    console.log(`Computer score: ${computerScore}`);
+    console.log(`Your score: ${humanScore}`);
 }
 
 function playGame() {
@@ -77,6 +86,7 @@ function playGame() {
                 return playRound(getComputerChoice(), getHumanChoice());
             } else if (humanChoice === null) {
                 console.log(`Game was canceled`);
+                return null;
             } else {
                 window.alert(`You won! ${humanChoice} beats ${computerChoice}`);
                 humanScore++;
@@ -84,12 +94,15 @@ function playGame() {
     }
 
     for (let i = 0; i < 5; i++) {
-        playRound(getComputerChoice(), getHumanChoice());
+        if (playRound(getComputerChoice(), getHumanChoice()) === null) {
+            break;
+        };
     }
 
-    console.log(`Computer score: ${computerScore}`);
-    console.log(`Your score: ${humanScore}`);
-    displayWinner(checkWinner(computerScore, humanScore));
+    if (calcRoundNumbers(computerScore, humanScore) === 5) {
+        displayScore(computerScore, humanScore);
+        displayWinner(checkWinner(computerScore, humanScore));
+    }
 }
 
 playGame();
