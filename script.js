@@ -31,3 +31,25 @@ function getHumanChoice() {
         return;
     }
 }
+
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice == "rock" && humanChoice == "scissors" ||
+        computerChoice == "scissors" && humanChoice == "paper" ||
+        computerChoice == "paper" && humanChoice == "rock") {
+            computerChoice = computerChoice.at(0).toUpperCase().concat(computerChoice.slice(1));
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            computerScore++;
+        } else if (computerChoice == humanChoice) {
+            window.alert("It's a tie! Play again");
+            return playRound(getComputerChoice(), getHumanChoice());
+        } else {
+            humanChoice = humanChoice.at(0).toUpperCase().concat(humanChoice.slice(1));
+            console.log(`You won! ${humanChoice} beats ${computerChoice}`);
+            humanScore++;
+        }
+}
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+
+playRound(computerSelection, humanSelection);
