@@ -46,6 +46,22 @@ function playRound(computerChoice, humanChoice) {
         }
 }
 
+function checkWinner(computerScore, humanScore) {
+    if (computerScore > humanScore) {
+        return "Computer";
+    } else {
+        return "Human";
+    }
+}
+
+function displayWinner(winner) {
+    if (winner == "Computer") {
+        console.log("Computer wins the game!");
+    } else {
+        console.log("You win the game!")
+    }
+}
+
 function playGame() {
     let computerScore = 0;
     let humanScore = 0;
@@ -70,6 +86,10 @@ function playGame() {
     for (let i = 0; i < 5; i++) {
         playRound(getComputerChoice(), getHumanChoice());
     }
+
+    console.log(`Computer score: ${computerScore}`);
+    console.log(`Your score: ${humanScore}`);
+    displayWinner(checkWinner(computerScore, humanScore));
 }
 
 playGame();
