@@ -11,9 +11,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    const userChoice = prompt("Rock, paper, scissors...");
-    if (userChoice || userChoice === "") {
-        switch (userChoice.toLowerCase()) {
+    const humanChoice = prompt("Rock, paper, scissors...");
+    if (humanChoice || humanChoice === "") {
+        switch (humanChoice.toLowerCase()) {
             case "rock":
                 return "rock";
             case "paper":
@@ -28,6 +28,3 @@ function getHumanChoice() {
         return;
     }
 }
-
-console.log(getHumanChoice());
-// console.log(getComputerChoice());
