@@ -1,6 +1,3 @@
-let computerScore = 0;
-let humanScore = 0;
-
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
@@ -49,7 +46,30 @@ function playRound(computerChoice, humanChoice) {
         }
 }
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
+function playGame() {
+    let computerScore = 0;
+    let humanScore = 0;
 
-playRound(computerSelection, humanSelection);
+    function playRound(computerChoice, humanChoice) {
+        if (computerChoice == "Rock" && humanChoice == "Scissors" ||
+            computerChoice == "Scissors" && humanChoice == "Paper" ||
+            computerChoice == "Paper" && humanChoice == "Rock") {
+                window.alert(`You lose! ${computerChoice} beats ${humanChoice}`);
+                computerScore++;
+            } else if (computerChoice == humanChoice) {
+                window.alert("It's a tie! Play again");
+                return playRound(getComputerChoice(), getHumanChoice());
+            } else if (humanChoice === null) {
+                console.log(`Game was canceled`);
+            } else {
+                window.alert(`You won! ${humanChoice} beats ${computerChoice}`);
+                humanScore++;
+            }
+    }
+
+    for (let i = 0; i < 5; i++) {
+        playRound(getComputerChoice(), getHumanChoice());
+    }
+}
+
+playGame();
