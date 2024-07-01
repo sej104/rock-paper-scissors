@@ -79,7 +79,7 @@ function playGame() {
     for (let i = 0; i < 5; i++) {
         if (playRound(getComputerChoice(), getHumanChoice()) === null) {
             break;
-        };
+        }
     }
 
     if (calcRoundNumbers(computerScore, humanScore) === 5) {
