@@ -42,25 +42,25 @@ function playGame() {
                 computerChoice === "Paper" && userChoice === "Rock") {
                     result.textContent = `You lose! ${computerChoice} beats ${userChoice}`;
                     computerScore += 1;
-                } else if (computerChoice === userChoice) {
-                    result.textContent = "It's a tie! Play again";
-                    return;
-                } else {
-                    result.textContent = `You won! ${userChoice} beats ${computerChoice}`;
-                    userScore += 1;
-                }
+            } else if (computerChoice === userChoice) {
+                result.textContent = "It's a tie! Play again";
+                return;
+            } else {
+                result.textContent = `You won! ${userChoice} beats ${computerChoice}`;
+                userScore += 1;
+            }
 
-                computerScoreboard.textContent = `Computer Score: ${computerScore}`;
-                userScoreBoard.textContent = `Your Score: ${userScore}`;
+            computerScoreboard.textContent = `Computer Score: ${computerScore}`;
+            userScoreBoard.textContent = `Your Score: ${userScore}`;
 
-                if (computerScore === 5 || userScore === 5) {
-                    const winner = document.createElement("div");
-                    winner.textContent = displayWinner(checkWinner(computerScore, userScore)); 
-                    winner.style.backgroundColor = "yellow";      
-                    
-                    const body = document.querySelector("body");
-                    body.appendChild(winner);
-                }
+            if (computerScore === 5 || userScore === 5) {
+                const winner = document.createElement("div");
+                winner.textContent = displayWinner(checkWinner(computerScore, userScore)); 
+                winner.style.backgroundColor = "yellow";      
+                
+                const body = document.querySelector("body");
+                body.appendChild(winner);
+            }
         }
     }
 
