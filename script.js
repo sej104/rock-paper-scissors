@@ -29,10 +29,6 @@ function getHumanChoice() {
     }
 }
 
-function calcRoundNumbers (computerScore, humanScore) {
-    return computerScore + humanScore;
-}
-
 function checkWinner(computerScore, humanScore) {
     if (computerScore > humanScore) {
         return "Computer";
@@ -76,16 +72,34 @@ function playGame() {
             }
     }
 
-    for (let i = 0; i < 5; i++) {
-        if (playRound(getComputerChoice(), getHumanChoice()) === null) {
-            break;
-        }
-    }
+    // for (let i = 0; i < 5; i++) {
+    //     if (playRound(getComputerChoice(), getHumanChoice()) === null) {
+    //         break;
+    //     }
+    // }
 
-    if (calcRoundNumbers(computerScore, humanScore) === 5) {
+    if (computerScore + humanScore === 5) {
         displayScore(computerScore, humanScore);
         displayWinner(checkWinner(computerScore, humanScore));
     }
 }
 
 playGame();
+
+const container = document.querySelector("#btn-container");
+
+container.addEventListener("click", (event) => {
+    const target = event.target;
+
+    switch(target.id) {
+        case "rock":
+            console.log("rock was selected");
+            break;
+        case "paper":
+            console.log("paper was selected");
+            break;
+        case "scissors":
+            console.log("scissors was selected");
+            break;
+    }
+});
